@@ -1,9 +1,9 @@
 //
-//  loader.jquery.js
-//  Loader Plugin Version 1.0
-//	Loader Plugin for preloading images and background images
+//  jquery.auto-expand.js
+//  Auto expanding Plugin Version 1.0
+//	Auto expanding Plugin for Auto expanding inputs and textareas
 //
-//  Created by Robbie Bardijn on 2012-05-22.
+//  Created by Robbie Bardijn on 2012-12-03.
 //  Copyright 2012 Robbie Bardijn. All rights reserved.
 //
 ;(function($) {
@@ -36,34 +36,42 @@
 			return text;
 		}
 
-		function initKeyevents($form) {
-			$form.find('input').keydown(function(e) {
-				addText($(this));
-			}).keyup(function() {
-				addText($(this));
-			});
+		function initKeyevents($element) {
+			if($element.is('input')) {
+				$element.keydown(function(e) {
+					addText($(this));
+				}).keyup(function() {
+					addText($(this));
+				});
+			}
 
-			$form.find('textarea').keydown(function(e) {
-				addArText($(this));
-			}).keyup(function() {
-				addArText($(this));
-			});
+			if($element.is('textarea')) {
+				$element.keydown(function(e) {
+					addArText($(this));
+				}).keyup(function() {
+					addArText($(this));
+				});
+			}
 		}
 
-		function initResizeing($form) {
-			$form.find('input').each(function() {
-				$(this).before('<span class="behind"></span>');
-				if($(this).val() !== "") {
-					addText($(this));
-				}
-			});
+		function initResizeing($element) {
+			if($element.is('input')) {
+				$element.each(function() {
+					$(this).before('<span class="behind"></span>');
+					if($(this).val() !== "") {
+						addText($(this));
+					}
+				});
+			}
 
-			$form.find('textarea').each(function() {
-				$(this).before('<span class="behind"></span>');
-				if($(this).val() !== "") {
-					addArText($(this));
-				}
-			});
+			if($element.is('textarea')) {
+				$element.each(function() {
+					$(this).before('<span class="behind"></span>');
+					if($(this).val() !== "") {
+						addArText($(this));
+					}
+				});
+			}
 		}
 
 		return this.each(function() {

@@ -1,3 +1,3 @@
 $(document).ready(function() {
-	$('form').autoExpand();
+	$('form input, form textarea').autoExpand();
 });
