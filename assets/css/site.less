@@ -1,0 +1,60 @@
+/* -- SITE -- */
+form {
+	margin: 20px;
+
+	input[type=text], textarea {
+		.reset.cleanbox();
+		.effect.rounded_corners(5px);
+		.effect.inner_shadow(2px, 2px, 5px, 0, rgba(0, 0, 0, 0.3));
+		border:1px solid #AAA;
+		padding: 8px 10px;
+		width: 30px;
+		z-index: 2;
+		position: relative;
+		margin: 5px 0 0 0;
+	}
+
+	textarea {
+		resize: none;
+		overflow: hidden;
+		width: 150px;
+		height: 20px;
+		width: 30px;
+	}
+	.behind {
+		position: absolute;
+		padding: 8px 10px;
+		z-index: 1;
+	}
+}
+
+/* -- IE7 -- */
+.ie7 {
+	.iespace.ie7();
+	/*	for example to apply also the styles from ie8 and ie9 you can call in other functions here like so: */
+	/*	.iespace.ie8();*/
+	/*	.iespace.ie9();*/
+}
+
+/* -- IE8 -- */
+.ie8 {
+	.iespace.ie8();
+	/*	.iespace.ie9();*/
+}
+
+/* -- IE9 -- */
+.ie9 {
+	.iespace.ie9();
+}
+
+.iespace {
+	.ie7() {
+		//All stuff for ie7 here
+	}
+	.ie8() {
+		//All stuff for ie8 here
+	}
+	.ie9() {
+		//All stuff for ie9 here
+	}
+}
